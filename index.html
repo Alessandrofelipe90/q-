@@ -121,29 +121,24 @@
     </div>
 
     <script>
-        // Dispara evento de carregamento da página no dataLayer
+        // Dispara evento de carregamento
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ 'event': 'vsl_page_load' });
 
-        // --- CONFIGURAÇÃO DO DELAY DA OFERTA ---
-        // Defina o tempo em que o botão deve aparecer (em milissegundos).
-        // Ex: Se o pitch começa aos 10 minutos, coloque 600000.
-        const tempoDelay = 10000; // 10 segundos para teste
+        const tempoDelay = 10000; // 10 segundos
 
         setTimeout(function() {
             document.getElementById('btn-cta').classList.remove('escondido');
-            // Dispara evento de pitch no dataLayer
             window.dataLayer.push({ 'event': 'vsl_pitch_reached' });
         }, tempoDelay);
 
-        // --- AÇÃO DO BOTÃO CTA ---
         document.getElementById('btn-cta').addEventListener('click', function() {
-            this.classList.add('escondido'); // Oculta o botão principal
-            document.getElementById('checkout-area').classList.remove('escondido'); // Mostra o form
+            this.classList.add('escondido');
+            document.getElementById('checkout-area').classList.remove('escondido');
             window.dataLayer.push({ 'event': 'checkout_intent' });
         });
 
-        // --- GERAÇÃO DO PIX VIA API ---
+        // --- GERAÇÃO DO PIX VIA API (MAKE) ---
         document.getElementById('btn-gerar-pix').addEventListener('click', function() {
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
@@ -154,11 +149,12 @@
                 return;
             }
 
-            // Aqui entra a requisição Fetch para o seu backend ou serverless function
-            // que comunicará com a API do Mercado Pago para não expor seu Access Token no HTML.
-            
-    
-            fetch('https://hook.us2.make.com/ecvvsrueyqrrdl6maljfotcexvsl3h48', {
+            document.getElementById('btn-gerar-pix').innerText = "A gerar PIX...";
+
+            // A tua URL do Make já está aqui configurada:
+            const webhookMake = "https://hook.us2.make.com/ecvvsrueyqrrdl6maljfotcexvsl3h48";
+
+            fetch(webhookMake, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nome: nome, email: email, cpf: cpf })
@@ -166,14 +162,17 @@
             .then(res => res.json())
             .then(data => {
                 document.getElementById('resultado-pix').classList.remove('escondido');
-                document.getElementById('qr-code-img').src = 'data:image/jpeg;base64,' + data.qr_code_base64;
-                document.getElementById('copia-cola').value = data.qr_code;
+                if(data.qr_code_base64) {
+                    document.getElementById('qr-code-img').src = 'data:image/jpeg;base64,' + data.qr_code_base64;
+                }
+                if(data.qr_code) {
+                    document.getElementById('copia-cola').value = data.qr_code;
+                }
+                document.getElementById('btn-gerar-pix').innerText = "Gerar PIX";
+            })
+            .catch(error => {
+                alert("Erro ao gerar o PIX. Tente novamente.");
+                document.getElementById('btn-gerar-pix').innerText = "Gerar PIX";
             });
-            
-            // Simulação visual para teste
-            document.getElementById('resultado-pix').classList.remove('escondido');
-            document.getElementById('copia-cola').value = "00020101021126580014br.gov.bcb.pix...";
         });
     </script>
-</body>
-</html>
