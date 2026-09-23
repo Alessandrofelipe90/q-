@@ -238,5 +238,37 @@
             alert('Código PIX copiado com sucesso!');
         }
     </script>
+
+<script>
+  // 1. Capturar os parâmetros da URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source') || 'organico';
+  const utmCampaign = urlParams.get('utm_campaign') || 'sem_campanha';
+  
+  // 2. Criar um ID de Sessão único para o visitante
+  let sessionId = localStorage.getItem('lead_session_id');
+  if (!sessionId) {
+    sessionId = 'lead_' + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem('lead_session_id', sessionId);
+  }
+
+  // 3. Enviar para o seu Webhook do Make.com
+  const webhookUrl = ' = "https://hook.us2.make.com/ecvvsrueyqrrdl6maljfotcexvsl3h48"S';
+  
+  fetch(webhookUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      evento: 'visita_vsl',
+      sessao_id: sessionId,
+      utm_source: utmSource,
+      utm_campaign: utmCampaign,
+      status: 'Foi para VSL',
+      timestamp: new Date().toISOString()
+    })
+  }).catch(error => console.error('Erro ao registar lead:', error));
+</script>
+    
 </body>
 </html>
+SS
