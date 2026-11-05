@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-<!-- Outros códigos que já lá estão -->
-    
-    <!-- TAG GLOBAL DO GOOGLE ADS QUE VAI COLAR -->
+    <!-- TAG GLOBAL DO GOOGLE ADS -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18420984078"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,73 +9,6 @@
       gtag('js', new Date());
       gtag('config', 'AW-18420984078');
     </script>
-    
-</head> <!-- A etiqueta de fecho do head -->
-<body>
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XDK4TSM3JW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XDK4TSM3JW');
-</script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação Exclusiva - adEasy Hub</title>
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #020617;
-            background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(56, 189, 248, 0.15), rgba(2, 6, 23, 1));
-        }
-        .video-container { 
-            position: relative; 
-            padding-bottom: 56.25%; 
-            height: 0; 
-            overflow: hidden; 
-            width: 100%; 
-            border-radius: 0.75rem; 
-        }
-        .video-container iframe, .video-container video { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-        }
-        .glow-effect {
-            box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.2);
-        }
-        .escondido { display: none !important; }
-        
-        /* Animação do botão de compra */
-        @keyframes pulse-btn {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-        .btn-pulse { animation: pulse-btn 2s infinite; }
-    </style>
 </head>
 <body class="text-slate-100 flex flex-col min-h-screen items-center py-12 px-4 selection:bg-emerald-500/30">
 
@@ -133,13 +63,13 @@
             QUERO GARANTIR MEU ACESSO <i class="fa-solid fa-arrow-right"></i>
         </button>
 
-        <!-- Formulário de Checkout PIX Customizado -->
+        <!-- Formulário de Checkout Redirecionado -->
         <div id="checkout-area" class="escondido w-full max-w-lg bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-3xl p-8 shadow-2xl relative overflow-hidden mb-10">
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-emerald-400 to-cyan-400"></div>
             
             <div class="text-center mb-6">
                 <h2 class="text-xl font-bold text-white mb-2">Liberação Imediata</h2>
-                <p class="text-sm text-slate-400">Preencha os seus dados abaixo para receber o acesso instantâneo ao painel.</p>
+                <p class="text-sm text-slate-400">Preencha os seus dados abaixo para ser redirecionado ao pagamento seguro.</p>
             </div>
             
             <div class="space-y-4">
@@ -157,29 +87,8 @@
                 </div>
                 
                 <button id="btn-gerar-pix" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 mt-2">
-                    <i class="fa-brands fa-pix"></i> GERAR PIX
+                    <i class="fa-brands fa-pix"></i> IR PARA O CHECKOUT
                 </button>
-            </div>
-
-            <!-- Área de Resultado do PIX (QR Code e Copia/Cola) -->
-            <div id="resultado-pix" class="escondido mt-8 p-6 bg-slate-950 rounded-2xl border border-emerald-500/30 text-center flex flex-col items-center">
-                <div class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full mb-4 inline-flex items-center gap-2">
-                    <i class="fa-solid fa-check-circle"></i> PIX Gerado com Sucesso
-                </div>
-                <p class="text-sm text-slate-300 mb-4">Abra a app do seu banco e escaneie o código abaixo:</p>
-                
-                <div class="bg-white p-2 rounded-xl mb-4">
-                    <img id="qr-code-img" src="" alt="QR Code PIX" class="w-48 h-48 object-contain">
-                </div>
-                
-                <p class="text-xs text-slate-400 mb-2">Ou copie o código PIX Copia e Cola:</p>
-                <div class="flex w-full gap-2 relative">
-                    <input type="text" id="copia-cola" readonly class="w-full bg-slate-900 border border-slate-700 rounded-lg pl-3 pr-10 py-2 text-xs text-slate-300 font-mono focus:outline-none">
-                    <button onclick="copiarPix()" class="absolute right-2 top-2 text-slate-400 hover:text-emerald-400 transition-colors">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
-                </div>
-                <p class="text-[10px] text-slate-500 mt-4 text-center">O acesso é enviado automaticamente para o e-mail em até 1 minuto após a confirmação do pagamento.</p>
             </div>
         </div>
 
@@ -203,16 +112,15 @@
             window.dataLayer.push({ 'event': 'vsl_pitch_reached' });
         }, tempoDelay);
 
-        // Ao clicar no CTA principal, esconde o botão e mostra o formulário bonito
+        // Ao clicar no CTA principal, esconde o botão e mostra o formulário
         document.getElementById('btn-cta').addEventListener('click', function() {
             this.classList.add('escondido');
             document.getElementById('checkout-area').classList.remove('escondido');
             window.dataLayer.push({ 'event': 'checkout_intent' });
-            // Faz scroll suave até ao formulário
             document.getElementById('checkout-area').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Função para gerar PIX via Webhook do Make
+        // Envia dados para o Make e redireciona direto para o Mercado Pago (init_point)
         document.getElementById('btn-gerar-pix').addEventListener('click', function() {
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
@@ -224,7 +132,7 @@
                 return;
             }
 
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> A processar...';
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> A redirecionar...';
             btn.classList.add('opacity-80', 'cursor-not-allowed');
 
             // URL do seu Webhook no Make.com
@@ -237,32 +145,22 @@
             })
             .then(res => res.json())
             .then(data => {
-                // Esconde os campos do formulário para o design ficar limpo
-                document.querySelector('.space-y-4').classList.add('escondido');
-                // Mostra a área do QR Code
-                document.getElementById('resultado-pix').classList.remove('escondido');
-                
-                if(data.qr_code_base64) {
-                    document.getElementById('qr-code-img').src = 'data:image/jpeg;base64,' + data.qr_code_base64;
-                }
-                if(data.qr_code) {
-                    document.getElementById('copia-cola').value = data.qr_code;
+                if(data.init_point) {
+                    // Redireciona imediatamente para o Checkout do Mercado Pago
+                    window.location.href = data.init_point;
+                } else {
+                    alert("Erro ao gerar link de pagamento. Tente novamente.");
+                    btn.innerHTML = '<i class="fa-brands fa-pix"></i> IR PARA O CHECKOUT';
+                    btn.classList.remove('opacity-80', 'cursor-not-allowed');
                 }
             })
             .catch(error => {
-                alert("Erro ao conectar com o banco. Tente novamente.");
-                btn.innerHTML = '<i class="fa-brands fa-pix"></i> TENTAR NOVAMENTE';
+                console.error("Erro:", error);
+                alert("Erro ao conectar com o servidor. Tente novamente.");
+                btn.innerHTML = '<i class="fa-brands fa-pix"></i> IR PARA O CHECKOUT';
                 btn.classList.remove('opacity-80', 'cursor-not-allowed');
             });
         });
-
-        // Função rápida para o utilizador copiar o código PIX
-        function copiarPix() {
-            const texto = document.getElementById('copia-cola');
-            texto.select();
-            document.execCommand('copy');
-            alert('Código PIX copiado com sucesso!');
-        }
     </script>
 
 <script>
@@ -278,8 +176,8 @@
     localStorage.setItem('lead_session_id', sessionId);
   }
 
-  // 3. Enviar para o seu Webhook do Make.com
-  const webhookUrl = ' = "https://hook.us2.make.com/ecvvsrueyqrrdl6maljfotcexvsl3h48"S';
+  // 3. Enviar para o seu Webhook do Make.com (Corrigido)
+  const webhookUrl = 'https://hook.us2.make.com/ecvvsrueyqrrdl6maljfotcexvsl3h48';
   
   fetch(webhookUrl, {
     method: 'POST',
@@ -287,13 +185,3 @@
     body: JSON.stringify({
       evento: 'visita_vsl',
       sessao_id: sessionId,
-      utm_source: utmSource,
-      utm_campaign: utmCampaign,
-      status: 'Foi para VSL',
-      timestamp: new Date().toISOString()
-    })
-  }).catch(error => console.error('Erro ao registar lead:', error));
-</script>
-    
-</body>
-</html>
