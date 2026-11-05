@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação Exclusiva - adEasy Hub</title>
+    
     <!-- TAG GLOBAL DO GOOGLE ADS -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18420984078"></script>
     <script>
@@ -9,6 +13,48 @@
       gtag('js', new Date());
       gtag('config', 'AW-18420984078');
     </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #020617;
+            background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(56, 189, 248, 0.15), rgba(2, 6, 23, 1));
+        }
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            width: 100%; 
+            border-radius: 0.75rem; 
+        }
+        .video-container iframe, .video-container video { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.2);
+        }
+        .escondido { display: none !important; }
+        
+        /* Animação do botão de compra */
+        @keyframes pulse-btn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .btn-pulse { animation: pulse-btn 2s infinite; }
+    </style>
 </head>
 <body class="text-slate-100 flex flex-col min-h-screen items-center py-12 px-4 selection:bg-emerald-500/30">
 
@@ -93,9 +139,9 @@
         </div>
 
         <!-- Rodapé de Segurança -->
-        <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-600 pb-10">
-            <div class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-slate-500"></i> Ambiente Seguro</div>
-            <div class="flex items-center gap-1.5"><i class="fa-solid fa-envelope-open-text text-slate-500"></i> Acesso no E-mail</div>
+        <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-500 pb-10">
+            <div class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-slate-400"></i> Ambiente Seguro</div>
+            <div class="flex items-center gap-1.5"><i class="fa-solid fa-envelope-open-text text-slate-400"></i> Acesso no E-mail</div>
         </div>
 
     </main>
@@ -176,7 +222,7 @@
     localStorage.setItem('lead_session_id', sessionId);
   }
 
-  // 3. Enviar para o seu Webhook do Make.com (Corrigido)
+  // 3. Enviar para o seu Webhook do Make.com
   const webhookUrl = 'https://hook.us2.make.com/ecvvsrueyqrrdl6maljfotcexvsl3h48';
   
   fetch(webhookUrl, {
@@ -185,3 +231,13 @@
     body: JSON.stringify({
       evento: 'visita_vsl',
       sessao_id: sessionId,
+      utm_source: utmSource,
+      utm_campaign: utmCampaign,
+      status: 'Foi para VSL',
+      timestamp: new Date().toISOString()
+    })
+  }).catch(error => console.error('Erro ao registar lead:', error));
+</script>
+    
+</body>
+</html>
