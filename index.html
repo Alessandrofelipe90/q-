@@ -96,14 +96,19 @@
             </h1>
         </div>
 
-        <!-- VSL (Vídeo de Vendas) -->
-        <div class="w-full max-w-3xl bg-slate-900/80 backdrop-blur-sm border border-slate-700 p-2 rounded-2xl mb-10 glow-effect relative">
-            <div class="video-container bg-black rounded-xl ring-1 ring-white/10">
-                <!-- VÍDEO ATUALIZADO AQUI -->
-               <iframe src="https://www.youtube.com/embed/sXibjLmSFGY?autoplay=1&rel=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
+       <!-- VSL (Vídeo de Vendas) -->
+<div class="w-full max-w-3xl mx-auto bg-slate-900/80 backdrop-blur-sm border border-slate-700 p-2 rounded-2xl mb-10 glow-effect relative">
+    <div class="video-container bg-black rounded-xl ring-1 ring-white/10 overflow-hidden flex justify-center">
+        <!-- VÍDEO ATUALIZADO AQUI -->
+        <!-- Adicionei w-full, uma altura mínima e o &mute=1 para forçar o autoplay -->
+        <iframe 
+            class="w-full h-[500px] md:h-[600px] rounded-xl"
+            src="https://www.youtube.com/embed/sXibjLmSFGY?autoplay=1&mute=1&rel=0" 
+            allow="autoplay; fullscreen; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
         <!-- Botão CTA (Aparece no Pitch após 10s) -->
         <button id="btn-cta" class="escondido btn-pulse w-full max-w-md bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-lg md:text-xl py-4 px-8 rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-3 mb-10 border border-emerald-400/50">
             QUERO SOLICITAR <i class="fa-solid fa-arrow-right"></i>
