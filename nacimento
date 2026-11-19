@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) - GA4 + Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z040CV6PSQ');  // Seu ID do Google Analytics 4
+  gtag('config', 'AW-XXXXXXXXXX'); // Seu ID do Google Ads
+</script>  
+
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessoria Documental Online</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #f4f6f8; color: #1f2937; line-height: 1.5; }
+    .container { max-width: 720px; margin: 0 auto; padding: 24px 16px; text-align: center; }
+    
+    .badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .highlight { color: #16a34a; }
+
+    .subheadline {
+      font-size: 17px;
+      color: #475569;
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+
+    /* Container responsivo 16:9 para o vídeo */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      margin-bottom: 24px;
+    }
+    .video-wrapper iframe,
+    .video-wrapper > div {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      width: 100%;
+      max-width: 440px;
+      background: #16a34a;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(22, 163, 74, 0.3);
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+    .cta-btn:hover { background: #15803d; transform: translateY(-1px); }
+
+    .disclaimer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .disclaimer a { color: #475569; text-decoration: underline; margin: 0 6px; }
+  </style>
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const botao = document.getElementById("btn-destino");
+    if (!botao) return;
+
+    const paramsAtuais = new URLSearchParams(window.location.search);
+    const urlDestino = new URL(botao.href);
+
+    // Repassa gclid e quaisquer outros parâmetros do anúncio sem apagar suas UTMs fixas
+    paramsAtuais.forEach((valor, chave) => {
+      urlDestino.searchParams.set(chave, valor);
+    });
+
+    botao.href = urlDestino.toString();
+  });
+</script>
+
+<body>
+
+  <main class="container">
+    <span class="badge">Condição Especial Online</span>
+
+    <h1>
+      Garanta um <span class="highlight">desconto exclusivo</span> na assessoria documental mais rápida e confiável do BR
+    </h1>
+
+    <p class="subheadline">▼ Assista ao vídeo abaixo para liberar seu desconto ▼</p>
+
+    <div class="video-wrapper">
+      <!-- COLE AQUI O IFRAME DO YOUTUBE OU O SCRIPT DO SEU PLAYER (EX: VTURB) -->
+      <iframe src="https://www.youtube.com/embed/SEU_ID_AQUI" allowfullscreen></iframe>
+    </div>
+
+    <a id="btn-destino" href="https://crcbrasil.com.br/servicos/mais-solicitadas/nascimento/?utm_source=google&utm_medium=cpc&utm_campaign=alessandro_google" class="cta-btn">
+  QUERO RESGATAR MEU DESCONTO
+</a>
+
+    <footer class="disclaimer">
+      <p><strong>Aviso Importante:</strong> Este site presta serviço privado e independente de assessoria e intermediação documental, não possuindo vínculo direto com órgãos governamentais ou cartórios oficiais.</p>
+      <p style="margin-top: 8px;">
+        Razão Social Ltda • CNPJ: 00.000.000/0001-00<br>
+        <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+      </p>
+    </footer>
+  </main>
+
+</body>
+</html>
