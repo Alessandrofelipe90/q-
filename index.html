@@ -13,6 +13,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-18420984078');
+      gtag('config', 'AW-472673875');
     </script>
 
     <!-- Script do Heatmap -->
@@ -75,7 +76,7 @@
 function dispararConversaoCompra() {
     gtag('event', 'conversion', {
         'send_to': 'AW-18420984078/FZPkCKfelYYdEI7S589E',
-        'value': 10.90, 
+        'value': 40.0, 
         'currency': 'BRL',
         'transaction_id': 'PIX_' + new Date().getTime() 
     });
@@ -266,6 +267,14 @@ function dispararConversaoCompra() {
                 return;
             }
             localStorage.setItem('last_pix_request', agora);
+
+            // Dispara conversão do Google Ads no clique de gerar Pix
+            gtag('event', 'conversion', {
+                'send_to': 'AW-472673875/byalCKvg5usBENPcseEB',
+                'value': 40.0,
+                'currency': 'BRL',
+                'transaction_id': 'PIX_' + agora
+            });
 
             const btn = document.getElementById('btn-gerar-pix');
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> A processar Pix...';
