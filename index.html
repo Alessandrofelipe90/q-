@@ -225,9 +225,21 @@ function dispararConversaoCompra() {
             window.dataLayer.push({ 'event': 'vsl_pitch_reached' });
         }, 10000);
 
+        // Clique no botão CTA -> Dispara evento específico para o GA4 (G-XDK4TSM3JW) e abre o formulário
         document.getElementById('btn-cta').addEventListener('click', function() {
             this.classList.add('escondido');
             document.getElementById('checkout-area').classList.remove('escondido');
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'clique_garantir_acesso', {
+                    'send_to': 'G-XDK4TSM3JW',
+                    'event_category': 'engajamento_vsl',
+                    'event_label': 'btn_quero_garantir_meu_acesso',
+                    'value': 40.0,
+                    'currency': 'BRL'
+                });
+            }
+
             window.dataLayer.push({ 'event': 'checkout_intent' });
             document.getElementById('checkout-area').scrollIntoView({ behavior: 'smooth' });
         });
@@ -268,13 +280,15 @@ function dispararConversaoCompra() {
             }
             localStorage.setItem('last_pix_request', agora);
 
-            // Dispara conversão do Google Ads no clique de gerar Pix
-            gtag('event', 'conversion', {
-                'send_to': 'AW-472673875/byalCKvg5usBENPcseEB',
-                'value': 40.0,
-                'currency': 'BRL',
-                'transaction_id': 'PIX_' + agora
-            });
+            // Dispara conversão do Google Ads (TrackLabs) no clique de gerar Pix
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-472673875/byalCKvg5usBENPcseEB',
+                    'value': 40.0,
+                    'currency': 'BRL',
+                    'transaction_id': 'PIX_' + agora
+                });
+            }
 
             const btn = document.getElementById('btn-gerar-pix');
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> A processar Pix...';
