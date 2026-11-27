@@ -1,0 +1,28 @@
+const ctaBtn = document.getElementById('ctaPedido');
+
+ctaBtn.addEventListener('click', () => {
+  const selectedFormat = document.querySelector('input[name="formato"]:checked');
+  const formato = selectedFormat ? selectedFormat.value : 'nao_selecionado';
+  const valorTexto = document.getElementById('summaryTotal').textContent;
+  const valorNumerico = parseFloat(valorTexto.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+
+  // 1. Disparo direto para GA4 (gtag.js)
+  if (typeof gtag === 'function') {
+    gtag('event', 'click_cta', {
+      cta_name: 'continuar_para_pedido',
+      formato_certidao: formato,
+      currency: 'BRL',
+      value: valorNumerico
+    });
+  }
+
+  // 2. Disparo para dataLayer (caso use GTM)
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'click_cta',
+    cta_name: 'continuar_para_pedido',
+    formato_certidao: formato,
+    currency: 'BRL',
+    value: valorNumerico
+  });
+});
